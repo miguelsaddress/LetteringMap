@@ -15,8 +15,8 @@ class InstagramFetcher {
 	public function __construct($accessToken, $hashtag){
 		$this->accessToken = $accessToken;
 		$this->hashtag = $hashtag;
-		$this->items = [];
-		$this->visited_urls = [];
+		$this->items = array();
+		$this->visited_urls = array();
 	}
 
 	public function fetch() {
@@ -52,8 +52,8 @@ class InstagramFetcher {
 	}
 
 	private function transformItemFormat($item) {
-		$f = [];
-		$f['custom'] = [];
+		$f = array();
+		$f['custom'] = array();
 		$f['custom']['date'] = $item->created_time;
 		$f['custom']['location'] = $item->location;
 		$f['custom']['link'] = $item->link;
