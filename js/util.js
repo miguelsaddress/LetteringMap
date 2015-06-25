@@ -31,7 +31,7 @@ var utils = function utils() {
 
   function getDateString(dateUnixTs) {
     var date = new Date(dateUnixTs * 1000);
-    var month = date.getMonth();
+    var month = date.getMonth() + 1;
     month = (month>=10) ? month : "0"+month;
     
     var day = date.getDate();
