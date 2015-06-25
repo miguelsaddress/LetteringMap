@@ -37,13 +37,31 @@ var utils = function utils() {
     var day = date.getDate();
     day = (day>=10) ? day : "0"+day;
 
-    var dateStr = day + "/" + month + "/" + date.getFullYear();
+    var hour = date.getHours();
+    hour = (hour>=10) ? hour : "0"+hour;
+    var mins = date.getMinutes();
+    mins = (mins>=10) ? mins : "0"+mins;
+    var secs = date.getSeconds();
+    secs = (secs>=10) ? secs : "0"+secs;
+
+    var dateStr = "{{d}}/{{m}}/{{y}} {{h}}:{{min}}:{{s}}";
+
+    dateStr = dateStr.replace("{{d}}", day);
+    dateStr = dateStr.replace("{{m}}", month);
+    dateStr = dateStr.replace("{{y}}", date.getFullYear());
+    dateStr = dateStr.replace("{{h}}", hour);
+    dateStr = dateStr.replace("{{min}}", mins);
+    dateStr = dateStr.replace("{{s}}", secs);
+
     return dateStr;
   }
 
   function getInfoTemplate() {
     var contentString = "<div style='width:250px'>";
-    contentString += "<p><strong>{{author.full_name}}</strong> - <a target='_blankblank' href='http://instagram.com/{{author.username}}'>@{{author.username}}</a> [{{date}}]</p>";
+    contentString += "<p>";
+      contentString += "<strong>{{author.full_name}}</strong> - <a target='_blankblank' href='http://instagram.com/{{author.username}}'>@{{author.username}}</a>";
+      contentString += " - <span style='font-size:smaller;'>[{{date}}]</span>";
+    contentString += "</p>";
     contentString += "<div>";
       contentString += "<p style='float:left; width:95px; margin-right:5px'>";
         contentString += "<a href='{{link}}' target='_blank'>";
