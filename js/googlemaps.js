@@ -22,8 +22,8 @@ function LetteringMap(mapCanvasId, utils, jsonSourceUrl) {
     var mapCanvas = document.getElementById(mapCanvasId);
     var loading = document.getElementById('loading').style.display = 'none';
     var mapOptions = {
-      center: new google.maps.LatLng(40.416775, -3.703790),
-      zoom: 4,
+      center: new google.maps.LatLng(46.547549,8.582305),
+      zoom: 5,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     map = new google.maps.Map(mapCanvas, mapOptions);
